@@ -26,6 +26,7 @@
     "express-session": "^1.11.3",
     "express-validator": "^2.17.1",
     "fbgraph": "^1.0.0",
+    "i18n-2": "^0.4.6",
     "jade": "^1.11.0",
     "less": "^2.5.1",
     "lob": "^3.5.0",

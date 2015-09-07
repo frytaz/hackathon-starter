@@ -2,6 +2,7 @@
  * Module dependencies.
  */
 var express = require('express');
+var i18n = require('i18n-2');
 var cookieParser = require('cookie-parser');
 var compress = require('compression');
 var favicon = require('serve-favicon');
@@ -40,6 +41,10 @@ var passportConf = require('./config/passport');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+
+i18n.expressBind(app, {
+  locales: ['pl', 'en'],
+});
 
 /**
  * Connect to MongoDB.
