@@ -255,13 +255,11 @@ exports.postReset = function(req, res, next) {
         });
     },
     function(user, done) {
-      var transporter = nodemailer.createTransport({
-        service: 'SendGrid',
-        auth: {
-          user: secrets.sendgrid.user,
-          pass: secrets.sendgrid.password
-        }
+      var transporter = nodemailer.createTransport("sendmail", {
+        path: secrets.mail.path,
+        args: secrets.mail.args
       });
+
       var mailOptions = {
         to: user.email,
         from: 'hackathon@starter.com',
@@ -330,13 +328,11 @@ exports.postForgot = function(req, res, next) {
       });
     },
     function(token, user, done) {
-      var transporter = nodemailer.createTransport({
-        service: 'SendGrid',
-        auth: {
-          user: secrets.sendgrid.user,
-          pass: secrets.sendgrid.password
-        }
+      var transporter = nodemailer.createTransport("sendmail", {
+        path: secrets.mail.path,
+        args: secrets.mail.args
       });
+
       var mailOptions = {
         to: user.email,
         from: 'hackathon@starter.com',
